@@ -63,7 +63,6 @@ class cache extends basicClass {
     public function setCache() {
         static::init()->_dyndnsData[worker::getHostname()]['ip'] = worker::getIPv4();
         static::init()->_dyndnsData[worker::getHostname()]['ip6'] =worker::getIPv6();
-        var_dump(static::init()->_dyndnsData);
         file_put_contents(config::cacheFile, serialize(static::init()->_dyndnsData));
     }
 }
