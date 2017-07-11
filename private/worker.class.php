@@ -32,6 +32,9 @@ class worker extends basicClass {
      * actual Class Constructor, which should not be called manually
      */
     protected function __construct() {
+        if (!file_exists(__DIR__.DIRECTORY_SEPARATOR.'config.class.php')) {
+            status::sendErrorMessage('Configfile config.class.php missing - Please edit config.class.example.php and rename it'); 
+        }
         if (config::authentication!==false) {
             $classname = 'website\\weyand\\dyndns\\authentication\\'.config::authentication;
             $classname::authenticate();
