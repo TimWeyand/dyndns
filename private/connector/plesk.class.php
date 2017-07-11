@@ -61,7 +61,7 @@ class plesk {
             $dns_hostname = $hostname.'.';
             
             // Update IP
-            $stmt = $this->_db()->prepare('UPDATE dns_recs SET val = ? , displayVal = ? WHERE type = ? AND host = ?');
+            $stmt = $this->_db()->prepare('UPDATE dns_recs SET time_stamp=now(), val = ? , displayVal = ? WHERE type = ? AND host = ?');
             $stmt->bind_param("ssss", $ipAdress, $ipAdress, $record, $dns_hostname);
             $stmt->execute();
             
