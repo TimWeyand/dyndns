@@ -19,9 +19,10 @@ class status {
      */
     public static function sendErrorMessage($message, $exit=true, $httpCode=500) {
         switch ($httpCode) {
+            case 200: header('HTTP/1.0 200 OK'); break;
             case 400: header('HTTP/1.0 400 Bad Request'); break;
             case 500:
-            default: header('HTTP/1.0 400 Internal Server Error');
+            default: header('HTTP/1.0 500 Internal Server Error');
         }
         header('Cache-Control: no-cache, no-store, must-revalidate');
         header('Content-Type: text/plain');
