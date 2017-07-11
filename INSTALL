@@ -1,0 +1,6 @@
+plesk db (for mysql database connection - its a nice shortcut by plesk)
+CREATE USER 'dyndns'@'localhost' IDENTIFIED BY 'somepassword';
+GRANT SELECT, UPDATE (time_stamp, displayVal, val) ON `psa`.`dns_recs` TO 'dyndns'@'localhost';
+GRANT SELECT (id, name, dns_zone_id) ON `psa`.`domains` TO 'dyndns'@'localhost';
+GRANT SELECT ON `psa`.`dns_zone` TO 'dyndns'@'localhost';
+exit

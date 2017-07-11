@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule ^updateDNS updatedns.php [L]
+</IfModule>
