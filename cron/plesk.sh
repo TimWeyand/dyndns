@@ -8,7 +8,7 @@ if [ ! -f $CronFile ]; then
   touch $CronFile;
   plesk db -r -N -e 'SELECT DISTINCT(domains.name) as domain FROM domains INNER JOIN dns_recs ON domains.dns_zone_id=dns_recs.dns_zone_id WHERE dns_recs.time_stamp >= DATE_SUB(NOW(), INTERVAL 60 MINUTE);' | while read domain; do
     echo "Updating: $domain"
-    /opt/psa/admin/bin/dnsmng -update $domain
+    /opt/psa/admin/bin/dnsmng --update $domain
   done
 fi
 
@@ -17,6 +17,6 @@ if [[ $CacheFile -nt $CronFile ]]; then
   touch $CronFile;
   plesk db -r -N -e 'SELECT DISTINCT(domains.name) as domain FROM domains INNER JOIN dns_recs ON domains.dns_zone_id=dns_recs.dns_zone_id WHERE dns_recs.time_stamp >= DATE_SUB(NOW(), INTERVAL 60 MINUTE);' | while read domain; do
     echo "Updating: $domain"
-    /opt/psa/admin/bin/dnsmng -update $domain
+    /opt/psa/admin/bin/dnsmng --update $domain
   done
 fi
