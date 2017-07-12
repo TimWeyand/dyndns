@@ -2,6 +2,6 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RewriteRule ^\.git www/ [L]
-  RewriteRule ^private www/ [L]
+  RewriteRule ^\.git /www/ [R,L]
+  RewriteRule ^private /www/ [R,L]
 </IfModule>
