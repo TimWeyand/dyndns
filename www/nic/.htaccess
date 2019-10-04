@@ -1,0 +1,9 @@
+#RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule ^updateDNS updatedns.php [L]
+  #SetEnvIf Authorization „(.*)“ HTTP_AUTHORIZATION=$1
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
