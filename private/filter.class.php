@@ -63,7 +63,7 @@ class filter {
       
         //set local variables
         worker::setHostname($get['hostname']);
-        worker::setIPv4($get['ip']);
+        worker::setIPv4(isset($get['myip'])==true ? $get['myip'] : $get['ip']);
         worker::setIPv6($get['ip6']);
         
         if (config::allowedDynDNSDomains!==false && count(config::allowedDynDNSDomains)) {
