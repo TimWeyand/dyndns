@@ -63,7 +63,6 @@ class filter {
       
         //set local variables
         worker::setHostname($get['hostname']);
-        if isset($get['myip']) {
         worker::setIPv4(isset($get['myip'])==true ? $get['myip'] : $get['ip']);
         worker::setIPv6($get['ip6']);
         
